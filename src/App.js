@@ -1,30 +1,21 @@
 import React from "react";
-import {
-  SchemaForm,
-  SchemaMarkupField as Field,
-  FormButtonGroup,
-  Submit,
-  Reset
-} from "@formily/antd"; // 或者 @formily/next
-import { Input } from "antd";
+// import {
+//   SchemaForm,
+//   SchemaMarkupField as Field,
+//   FormButtonGroup,
+//   Submit,
+//   Reset
+// } from "@formily/antd"; // 或者 @formily/next
+// import { Input } from "antd";
 import "antd/dist/antd.css";
 import "./styles.css";
-
+import MyTest from "./MyTest";
 export default class App extends React.Component {
   render() {
     return (
-      <SchemaForm
-        components={{ Input }}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        <Field type="string" name="name" title="Name" x-component="Input" />
-        <FormButtonGroup>
-          <Submit>查 询</Submit>
-          <Reset>重置</Reset>
-        </FormButtonGroup>
-      </SchemaForm>
+      <div>
+        <MyTest />
+      </div>
     );
   }
 }
