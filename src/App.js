@@ -9,7 +9,7 @@ import React from "react";
 // import { Input } from "antd";
 import "antd/dist/antd.css";
 import "./styles.css";
-import MyTest from "./MyTest";
+import MyTest from "./demo/MyTest";
 export default class App extends React.Component {
   render() {
     return (

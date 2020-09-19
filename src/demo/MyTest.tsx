@@ -6,43 +6,14 @@ import { render as renderAmis } from "amis";
 import { alert, confirm } from "amis/lib/components/Alert";
 import { toast } from "amis/lib/components/Toast";
 import "amis/lib/themes/default.css";
-export default class DemoIndex extends React.Component<any, any> {
+import PageData from "./PageData";
+export default class MyTest extends React.Component<any, any> {
   render() {
     return (
       <div>
         <p></p>
         {renderAmis(
-          {
-            type: "page",
-            body: {
-              type: "form",
-              controls: [
-                {
-                  type: "number",
-                  name: "a",
-                  label: "A"
-                },
-                {
-                  type: "number",
-                  name: "b",
-                  label: "B"
-                },
-                {
-                  type: "number",
-                  name: "sum",
-                  label: "和",
-                  disabled: true,
-                  description: "自动计算 A + B"
-                },
-                {
-                  type: "formula",
-                  name: "sum",
-
-                  formula: "a + b"
-                }
-              ]
-            }
-          },
+          PageData.gongshi,
 
           {
             // props...
