@@ -13,7 +13,7 @@ export default class MyTest extends React.Component<any, any> {
       <div>
         <p></p>
         {renderAmis(
-          PageData.gongshi,
+          PageData.simpalePage,
 
           {
             // props...

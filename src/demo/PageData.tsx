@@ -3,7 +3,7 @@ let data = {
     type: "page",
     title: "标题",
     remark: "提示 Tip",
-    body: "内容部分. 可以使用 \\${var} 获取变量。如: `\\$date`: ${date}",
+    body: "内容部分. 可以使用 \\${var} 获取变量。如: \\$date: ${date}",
     aside: "边栏部分",
     toolbar: "工具栏",
     initApi: "https://houtai.baidu.com/api/mock2/page/initData"
@@ -48,10 +48,26 @@ let data = {
         {
           type: "formula",
           name: "sum",
-          
+
           formula: "a * b"
         }
       ]
+    }
+  },
+  simpalePage: {
+    type: "page",
+    body: {
+      type: "form",
+      title: "myFrom",
+      api: "https://houtai.baidu.com/api/mock2/form/saveForm",
+      controls: [
+        {
+          type: "text",
+          name: "name",
+          label: "姓名："
+        }
+      ],
+      actions: []
     }
   }
 };
