@@ -69,6 +69,11 @@ let data = {
       ],
       actions: []
     }
+  },
+  ptest: {
+    type: "page",
+    initApi: "https://houtai.baidu.com/api/mock2/page/initData",
+    body: "date is ${date}"
   }
 };
 
