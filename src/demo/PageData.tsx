@@ -3,7 +3,7 @@ let data = {
     type: "page",
     title: "标题",
     remark: "提示 Tip",
-    body: "内容部分. 可以使用 \\${var} 获取变量。如: \\$date: ${date}",
+    // body: "内容部分. 可以使用 \\${var} 获取变量。如: \\$date: ${date}",
     aside: "边栏部分",
     toolbar: "工具栏",
     initApi: "https://houtai.baidu.com/api/mock2/page/initData"
@@ -72,9 +72,31 @@ let data = {
   },
   ptest: {
     type: "page",
-    initApi: "https://houtai.baidu.com/api/mock2/page/initData",
-    body: "date is ${date}"
+    body: {
+      type: "form",
+      api: {
+        method: "post",
+        url: "https://api.virapi.com/vir_gitee2eb4180c9ah55/demo/SaveFrom",
+        headers: {
+          Accept: "*/*",
+          "Cache-Control": "no-cache"
+          // "app-token":
+          //   "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce"
+        }
+        // data: {
+        //   _token: "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce"
+        // }
+      },
+      controls: []
+    }
   }
+  // ptest: {
+  //   type: "page",
+  //   initApi:
+  //     // "https://houtai.baidu.com/api/mock2/page/initData",
+  //     "https://api.virapi.com/vir_gitee2eb4180c9ah55/demo/GetName?_token=$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce",
+  //   body: "date is ${date}"
+  // }
 };
 
 export default data;

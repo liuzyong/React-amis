@@ -43,16 +43,18 @@ export default class MyTest extends React.Component<any, any> {
           headers // 请求头
         }: any) => {
           config = config || {};
-          config.withCredentials = true;
-          responseType && (config.responseType = responseType);
+          // config.withCredentials = true;
+          // responseType && (config.responseType = responseType);
 
-          if (config.cancelExecutor) {
-            config.cancelToken = new (axios as any).CancelToken(
-              config.cancelExecutor
-            );
-          }
+          // if (config.cancelExecutor) {
+          //   config.cancelToken = new (axios as any).CancelToken(
+          //     config.cancelExecutor
+          //   );
+          // }
 
           config.headers = headers || {};
+          config.headers["app-token"] =
+            "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce";
 
           if (method !== "post" && method !== "put" && method !== "patch") {
             if (data) {
