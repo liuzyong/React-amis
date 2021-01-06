@@ -53,8 +53,8 @@ export default class MyTest extends React.Component<any, any> {
           // }
 
           config.headers = headers || {};
-          config.headers["app-token"] =
-            "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce";
+          // config.headers["app-token"] =
+          //   "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce";
 
           if (method !== "post" && method !== "put" && method !== "patch") {
             if (data) {

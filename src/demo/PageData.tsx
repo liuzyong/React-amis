@@ -16,7 +16,7 @@ let data = {
     body: {
       type: "form",
       mode: "horizontal",
-      api: "https://houtai.baidu.com/api/mock2/form/saveForm",
+      initApi: "https://houtai.baidu.com/api/mock2/form/saveForm",
       controls: [
         { label: "Name", type: "text", name: "name" },
         { label: "Email", type: "email", name: "email" }
@@ -59,7 +59,16 @@ let data = {
     body: {
       type: "form",
       title: "myFrom",
-      api: "https://houtai.baidu.com/api/mock2/form/saveForm",
+      initApi: "http://192.168.142.120:8080/api/rtx-detail",
+      // adaptor : " console.log(payload) \n const { data } = response.data \n  return {\n    ...payload,\n data ,\n   status: payload.code === 200 ? 0 : payload.code\n}",
+
+      adaptor: function (payload:any, response:any) {
+        console.log(payload)
+        return {
+          ...payload,
+          status: payload.code === 200 ? 0 : payload.code
+        };
+      },
       controls: [
         {
           type: "text",
@@ -70,33 +79,17 @@ let data = {
       actions: []
     }
   },
-  ptest: {
-    type: "page",
-    body: {
-      type: "form",
-      api: {
-        method: "post",
-        url: "https://api.virapi.com/vir_gitee2eb4180c9ah55/demo/SaveFrom",
-        headers: {
-          Accept: "*/*",
-          "Cache-Control": "no-cache"
-          // "app-token":
-          //   "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce"
-        }
-        // data: {
-        //   _token: "$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce"
-        // }
-      },
-      controls: []
-    }
-  }
-  // ptest: {
-  //   type: "page",
-  //   initApi:
-  //     // "https://houtai.baidu.com/api/mock2/page/initData",
-  //     "https://api.virapi.com/vir_gitee2eb4180c9ah55/demo/GetName?_token=$2a$10$g5WoGmBLZ9S4MCb7E.tiOuvXEMcA0AS7NIjd0avIDe.U39HSsJnce",
-  //   body: "date is ${date}"
-  // }
+  ptest: { "type": "page", "title": "RTX明细", "body": [{ "type": "crud", 
+  "api": { "method": "get", "url": "http://192.168.142.120:8080/api/rtx-detail", 
+  "adaptor": " const data = payload.value.result \n  return {\n    ...payload,\n data ,\n   status: payload.code === 200 ? 0 : payload.code\n}", 
+  "dataType": "json", "replaceData": true}, "columns": [{ "name": "name", "label": "姓名", "type": "text", "placeholder": "-", "sortable": true }, { "name": "num", "label": "员工号", "type": "text" }, { "type": "text", "label": "部门", "name": "dept" }, { "type": "date", "label": "申请日期", "name": "app_date" }], "messages": {}, "initFetch": true, "loadDataOnce": true, "footable": { "expand": "first" }, "columnsTogglable": true, "mode": "table", "bulkActions": [{ "label": "导出", "type": "button", "size": "sm", "actionType": "ajax" }]}]}
+
+  
 };
 
 export default data;
+
+// const aa={
+//   ...payload,
+//   payload.value.result
+// }
